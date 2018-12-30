@@ -1,0 +1,28 @@
+{
+  "name": "test-package",
+  "main": "./lib/test-package",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": ["djunker-package:state", "djunker-package:schema", "djunker-package:test"]
+  },
+  "repository": "https://github.com/atom/test-package",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+     "serve-docs": "docsify serve $npm_package_config_docs_dir",
+     "docs-bg": "if [ -e docsify.pid ]; then echo 'ERROR: docsify pid file exists, kill process and remove file to start'; else docsify serve $npm_package_config_docs_dir > docsify.log & echo $! > docsify.pid; fi",
+     "stop-docs": "if [ -e docsify.pid ]; then kill -9 `less docsify.pid`; rm docsify.pid; else echo 'ERROR: pid file not found'; fi"
+  },
+  "config": {
+    "docs": {
+      "dir": "./"
+    }
+  }
+}
