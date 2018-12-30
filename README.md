@@ -4,14 +4,18 @@ This is an example/practice package that can be loaded into atom. This README wi
 
 One window with package code and one window for testing. Quickly restarting atom during development: Use `window:reload` in the atom command pallete.
 
+
 ## init.coffee
 init.coffee is a file created in `~/.atom` that can be used to hack and customize atom.
+
 
 ## Atom Packages Directory
 Atom looks for packages in the `.atom/packages/` directory. The package generator that comes with atom creates symbolic links from this directory to the directory that the generated package is created in.
 
 ### Generating Blank Packages
 `Package Generator: Generate Package` in the atom command pallete
+
+
 
 
 ## Directory Structure

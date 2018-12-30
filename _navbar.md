@@ -1,2 +1,3 @@
 * [Home](/)
-* [My Packages](packages.md)
+* [Packages](packages.md)
+* [Commands](commands.md)
