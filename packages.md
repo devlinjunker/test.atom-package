@@ -102,6 +102,16 @@ Open bash terminal inside of atom
 Use TernJS to follow JavaScript References/Definitions for functions  
 `ternjsres` - restart ternjs server  
 `ternjsref` - get references to a method elsewhere in workspace  
+- [ ] compare vs atom-ternjs
+
+### Atom-Typescript
+ Typescript plugin for Atom. Lots of settings
+ - [ ] read up on https://atom.io/packages/atom-typescript
+
+### Autocomplete Modules
+Autocomple for require/import statements of packages
+ - [ ] Investigate Webpack Support
+ - [ ] Babel Plugin Module Resolver?
 
 ### Autocomplete Plus - somewhat annoying, may want to disable
 Basic autocomplete based on open buffers  
@@ -129,6 +139,25 @@ Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
 Helper package for writing documentation...  
  - Auto create comment documentation blocks
 
+### IDE-CSS
+Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
+ - Rules outline in Outline Panel
+ - Tooltips for css selector/property and linters
+
+### IDE-HTML
+Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
+ - HTML DOM Outline in Outline Panel
+
+### IDE-Typescript
+Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
+ - Auto completion
+ - Diagnostics (errors & warnings, with autofixes)
+ - Document outline
+ - Find references
+ - Go to definition
+ - Hover
+ - Signature help
+
 ### Git Log
 Graphs Git Commits - `Git Log: Show`
 
@@ -142,7 +171,11 @@ API to show intensions? in atom
 
 ### JS Refactor
   Not sure about this, supposed to make refactoring javascript files easier. Should work with es2016, but not sure (broken build)
+  - Goes with Refactor Package below? https://atom.io/packages/refactor
   - [ ] Test this
+  - [ ] Compare https://atom.io/packages/js-refactor 
+    - vs javascript-refactor https://atom.io/packages/javascript-refactor
+    - vs js-refactor-atom https://atom.io/packages/js-refactor-atom
 
 ### Language Babel
   Language Grammar for ES2016 and ESnext, including JSX syntax
@@ -150,6 +183,7 @@ API to show intensions? in atom
 ### Linter + Linter ESLint + Linter UI Default
 Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
  - Uses the project version of eslint
+ - Linter-tslint too
 
 ### Mocha Test Runner
   Run Mocha Test Files or Specific specs using the project mocha installation.
