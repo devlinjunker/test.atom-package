@@ -1,0 +1,7 @@
+# "todo-show":
+#  "ignoreThesePaths": ['node_modules', '*/config.cson']
+#  "findUsingRegex": "/(${TODOS}|- \\[(?:(?:\\.\\.)| )\\])[:;.]+\d*($|\\s?.*$|[\\{\\[\\(].+$)/g"
+#  "showInTable": ["Text", "Type", "Path", "Line"]
+
+# "todo":
+#  "a_pattern": "(?:TODO\:.+|- \\[ \\] .+)"
