@@ -4,12 +4,12 @@ parserOptions:
     # jsx: true
   sourceType: module
 
-settings:
-  import/resolver:
-    webpack:
-      config: ./webpack.config.js
+# settings:
+#   import/resolver:
+#     webpack:
+#       config: ./webpack.config.js
 
-# TODO: turn browser or node off depending on template
+# NOTE: turn browser or node off depending on template
 env:
   # browser: true
   es6: true
@@ -21,7 +21,7 @@ env:
 plugins:
   - prettier
   - flowtype
-  # - header
+ # - header
 
 extends:
   - eslint:recommended
@@ -35,17 +35,15 @@ globals:
   atom: readonly
   jasmine: readonly
   runs: readonly
+  document: readonly
 
 # Custom Rules Below
 rules:
   # Documentation Rules
   # header/header:
-  #   - error
+  #   - warn
   #   - block
-  #   - pattern: ^\*\n
-  #               \* \@flow\n
-  #              (\*\n
-  #               \* .*\n )?$
+  #   - pattern: description
   valid-jsdoc: error
   require-jsdoc:
     - warn

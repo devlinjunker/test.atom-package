@@ -121,7 +121,7 @@ List and description of packages installed on my atom install
   - Panel with view of package and theme loading/activation times
 - tree-view - open and explore files in current project  
 - update-package-dependencies - should only be used in atom packages. Updates all dependences referenced in package.json
- - TODO: Attempt with project manager atom package
+ - TODO: Attempt update-package-dependencies with project manager atom package
 
 - whitespace - strips/adds trailing whitespace when editor saved
 - wrap-guide - displays line at 80th character (or uses editor.preferredLineLength)
@@ -146,6 +146,100 @@ Open bash terminal inside of atom.
  - [x] Terminal From Nuclide? NO (ATOM-IDE-UI comes with one)
 `nterminal` or `Ctrl + Shift + T` - open terminal panel  
 
+### DocBlockr *
+Helper package for writing documentation...  
+ - Auto create comment documentation blocks
+ - [x] Enable DocBlockr
+
+### Hyperclick *
+ Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
+  - triggered by two events:
+    - `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
+    - `<cmd-mousedown>` performs the action associated with the clickable text.
+    - `<cmd-alt-enter>` performs the action on the text under the cursor.
+  - [x] Hyperclick for vanilla javascript files? (only working in flow files right now)
+   - JS Hyperclick
+  - [ ] CSS Hyperclick
+
+### Atom IDE UI *
+UIs to support language services and debuggers
+ - [ ] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
+ - IDEA: Markdown outline?
+
+#### IDE-CSS *
+Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
+ - Rules outline in Outline Panel
+ - Tooltips for css selector/property and linters
+
+#### IDE-HTML *
+Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
+ - HTML DOM Outline in Outline Panel
+
+#### IDE-Flowtype *
+Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
+ - Flow Autocomplete is bumped to top of autocomplete list
+   IDEA: Show which class (parent class) a property/method is from
+ - UI indications of bad flow code
+ - go to definition (hover over symbol and click while holding `cmd`)
+ - type hints when hovering over symbols
+ - Outline of flow files
+  - make sure flow server is running for project:
+   - new terminal, `./node_modules/.bin/flow start`
+
+#### IDE-Typescript --
+Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
+ - Auto completion
+ - Diagnostics (errors & warnings, with autofixes)
+ - Document outline
+ - Find references
+ - Go to definition
+ - Hover
+ - Signature help
+ - TODO: Explore IDE-Typescript Later
+
+### Language Babel *
+ Language Grammar for ES2016 and ESnext, including JSX syntax
+
+### ~~Linter + Linter UI Default +~~  Linter ESLint *
+ Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
+  - Uses the project version of eslint
+  - Linter-tslint too
+  - atom-ide-diagnostics also displays linter messages (conflicts with linter?)
+  [x] Install linter-eslint
+   - Seems to work with Atom-IDE-UI diagnostics
+   - Enable autosave to get rules fixed on save (whenever possible)
+   - [x] Format this project according to my `eslint.yaml`
+   - [ ] Enable HTML Linting?
+
+### Pigments *
+display colors in the text editor via highlights over the color code
+ - [x] Enable Pigments?
+
+### javascript-refactor *
+Stand-alone package for refactoring imported javascript file locations on rename
+  - Select `Rename (with Refactor Support)` from context menu in file tree
+  - IDEA: Include in default rename?
+  - IDEA: Display message/indicator when refactoring
+
+### Todo *
+Panel for displaying all TODOs in the project files (ignoring node_modules)
+  - Can customize RegExp for finding items
+  `ctrl + K - ctrl + T`
+  - updated todo key mapping in keymap.cson
+  ```
+  "atom-workspace":
+    "shift-cmd-T": "todo:toggle"
+  ```
+  - Nice interface with nested TODOs based on file path
+
+  **Settings**
+  - RegExp Pattern: `(?:(TODO|IDEA|Q):.+|- \[(\.\.| |\?)\] .+)`
+  - RegExp Flags
+  - Ignore Paths: `**/node_modules/**, **/.git/**, **/build/**, **/public/**, **/defs/**, **/docs/**`
+  - Key Binding Config
+  - IDEA: add filtering in panel
+  - IDEA: Remember collapsed todo sections
+
 
 ### Atom-TernJS --
 Use TernJS to follow JavaScript References/Definitions for functions  
@@ -154,8 +248,8 @@ Use TernJS to follow JavaScript References/Definitions for functions
  - Need to start the tern server during development (AND CLOSE WHEN DONE)
  - Each project needs to be configured when created
  - Doesn't work with flow? ide-flowtype has it's own autocompletes though..
- - TODO: compare ternjs vs atom-ternjs
- - TODO: Explore with javascript
+ - Q: ternjs vs atom-ternjs
+ - [ ] Explore ternjs/atom-ternjs with javascript
 
 ### Atom-Typescript --
  Typescript plugin for Atom. Lots of settings
@@ -185,8 +279,9 @@ Basic autocomplete based on open buffers
 ### Autoflow (Core)
 Format the selected section to have lines less than max line length (80)  
 `alt + cmd + q` - toggle autoflow  
- - [..] Look into autoflow
+ - [x] Look into autoflow
   - garbage in `.md` files
+  - garbage in `.js` files too... not useful it seems
 
 ### Bookmarks (Core)
 Toggle between locations in atom files  
@@ -204,55 +299,6 @@ Package API for displaying in progress tasks
 Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
  - Enable/Remove Color Picker if ever needed
 
-### DocBlockr *
-Helper package for writing documentation...  
- - Auto create comment documentation blocks
- - [x] Enable DocBlockr
-
-### Hyperclick *
- Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
-  - triggered by two events:
-    - `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
-    - `<cmd-mousedown>` performs the action associated with the clickable text.
-    - `<cmd-alt-enter>` performs the action on the text under the cursor.
-  - [ ] Hyperclick for vanilla javascript files? (only working in flow files right now)
-
-### Atom IDE UI *
-UIs to support language services and debuggers
- - [ ] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
- - IDEA: Markdown outline?
-
-#### IDE-CSS *
-Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
- - Rules outline in Outline Panel
- - Tooltips for css selector/property and linters
-
-#### IDE-HTML *
-Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
- - HTML DOM Outline in Outline Panel
-
-#### IDE-Flowtype *
-Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
- - Flow Autocomplete is bumped to top of autocomplete list
-   IDEA: Show which class (parent class) a property/method is from
- - UI indications of bad flow code
- - go to definition (hover over symbol and click while holding `cmd`)
- - type hints when hovering over symbols
- - Outline of flow files
-  - make sure flow server is running for project:
-   - new terminal, `./node_modules/.bin/flow start`
-
-### IDE-Typescript --
-Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
- - Auto completion
- - Diagnostics (errors & warnings, with autofixes)
- - Document outline
- - Find references
- - Go to definition
- - Hover
- - Signature help
- - TODO: Explore IDE-Typescript Later
-
 ### ~~Git Log~~
 Graphs Git Commits - `Git Log: Show`
  - [x] Enable Git Log (Nah, not now)
@@ -268,23 +314,10 @@ API to show intentions? in atom
    - Weird package by the colorpicker guy (for displaying quick items in editor)
   - IDEA: maybe use intentions in other projects?
 
-### Language Babel *
-Language Grammar for ES2016 and ESnext, including JSX syntax
-
-### ~~Linter + Linter UI Default +~~  Linter ESLint *
-Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
- - Uses the project version of eslint
- - Linter-tslint too
- - atom-ide-diagnostics also displays linter messages (conflicts with linter?)
- [x] Install linter-eslint
-  - Seems to work with Atom-IDE-UI diagnostics
-  - Enable autosave to get rules fixed on save (whenever possible)
-  - [x] Format this project according to my `eslint.yaml`
-  - [ ] Enable HTML Linting?
-
-### Mocha Test Runner
+### Mocha Test Runner ?
   Run Mocha Test Files or Specific specs using the project mocha installation.
   - `ctrl + alt + m` run current file (or single mocha block if cursor on that line)
+  - [ ] Install Mocha Test Runner?
 
 ### Node Debugger ?
   Basic debugger for node projects. When in js files, begin debugger and open panels with `F5`.
@@ -304,13 +337,27 @@ Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint 
 
 Or can attach to external process if you pass `--debug=<port>` to node process to debug.
 
-### Nuclide ?
+### Nuclide --
 Collection of features for Atom to provide IDE like functionality. From Facebook.
- - [ ] Look into full Nuclide feature list: https://nuclide.io/docs/
-
-### Pigments *
-display colors in the text editor via highlights over the color code
- - [x] Enable Pigments?
+ - [x] Look into full Nuclide feature list: https://nuclide.io/docs/
+  - Quick Open (Proprietary Search Feature) "OmniSearch", file names, open files, recent files
+  - Remote Development with project on server
+  - Nuclide Diagnostics (Similar to atom-ide-ui)
+  - Distraction Free Mode (Quickly Toggle Side panels?)
+  - Format JS (For even more javascript ide tools)
+   - Auto Add/Remove? Require statements/Types
+   - [ ] Look into FormatJS Package
+ - Debugger inspired by chrome tools
+ - Task Runner toolbar (Build, test, run, debug)
+ - Working Sets
+ - Outline panel
+ - Context View - most interesting
+  - Display definition and information about symbol clicking on
+  - [ ] Look into Context View Package
+ - Health Stats for Nuclide (Atom)
+ - Terminal (like atom-ide-ui)
+ - Optional: Nuclide Toolbar
+ - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
 
 ### ~~Prettier-Atom~~
   - Automatically format on save (after enabling in settings)
@@ -324,53 +371,30 @@ React Support (JSX, Indentation, Snippets, Autocomplete and reformatting?)
   - https://orktes.github.io/atom-react/
   - TODO: Look into React Support Later?
 
-### Refactor ?
+### ~~Refactor~~
 Enables Refactoring of code (in project? or just open files?).
   - tried with basic.webpack project in LocalStorage Service and no results/response
   - [x] Should support javascript  https://atom.io/packages/js-refactor
-  - TODO: (Look into refactor with ES6 but not flow?) https://github.com/hax/js-refactor/issues/6
+  - [x] (Look into refactor with ES6 but not flow?) https://github.com/hax/js-refactor/issues/6
   1. set cursor to symbol
   2. `ctrl + alt + R`
   3. Type new name
   4. Press Enter
+  - only works inside the file you are in (for local variables)
 
-#### JS Refactor ?
+#### ~~JS Refactor~~
 Not sure about this, supposed to make refactoring javascript files easier. Should work with es2016, but not sure (broken build)
   - Requires Refactor Package
   - [x] Test JS Refactor
-    - works on js files in this project, but not flow files in `basic.webpack` template
-    - [?] Look into JS-Refactor flow js integration?
-  - [..] Try out other refactor plugins
+    - works inside one js file in this project
+    - not flow files in `basic.webpack` template
+    - Not that great of a package or i'd say: Look into JS-Refactor flow js integration?
+  - [x] Try out other refactor plugins
     - [x] javascript-refactor https://atom.io/packages/javascript-refactor
       - refactors imported file locations for javascript files (useful on it's own)
-    - TODO: js-refactor-atom https://atom.io/packages/js-refactor-atom
-      - Looks like it is only some basic (not useful) refactors
-
-### javascript-refactor *
-Stand-alone package for refactoring imported javascript file locations on rename
-  - Select `Rename (with Refactor Support)` from context menu in file tree
-  - IDEA: Include in default rename?
-  - IDEA: Display message/indicator when refactoring
-
-### Todo *
-Panel for displaying all TODOs in the project files (ignoring node_modules)
-  - Can customize RegExp for finding items
-  `ctrl + K - ctrl + T`
-  - updated todo key mapping in keymap.cson
-  ```
-  "atom-workspace":
-    "shift-cmd-T": "todo:toggle"
-  ```
-  - Nice interface with nested TODOs based on file path
-
-  **Settings**
-  - RegExp Pattern: `(?:(TODO|IDEA):.+|- \[(\.\.| |\?)\] .+)`
-  - RegExp Flags
-  - Ignore Paths: `**/node_modules/**, **/.git/**, **/build/**, **/public/**, **/defs/**, **/docs/**`
-  - Key Binding Config
-  - IDEA: add filtering in panel
-  - IDEA: Remember collapsed todo sections
-
+    - [x] js-refactor-atom https://atom.io/packages/js-refactor-atom
+      - Looks like it is only some basic (not useful) refactors  
+  IDEA: Rename method/variable refactor plugin
 
 ### ~~Todo Show~~
 More complex version of above. Less pretty
