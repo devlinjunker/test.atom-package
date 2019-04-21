@@ -29,7 +29,7 @@
 
 `Command + Shift + C` toggle color picker  (Color Picker)
 
-`Ctrl + Shift + T` - New Terminal Pane (Nuclide?)
+`Ctrl + Shift + T` - New Terminal Pane (Atom-IDE-UI)
 
 ## Pallete Commands to Remember
 `book` - to view all bookmarks  
@@ -38,6 +38,23 @@
 `ternjsres` - restart ternjs server  
 
 
+## Atom configuration
+ - Install `atomic-management` package to get project specific atom packages and settings.
+ - Configure project specific settings in `./.atom/config.cson`  
+  e.g.
+  ```
+  "todo":
+    "a_pattern":"(?:(TODO|IDEA):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+  ```
+ - Configure global settings in `~/.atom/config.cson`
+ - Configure Custom Key-mappings in `~/.atom/keymap.cson`
+ - Configure UI View CSS settings in `~/.atom/styles.less`  
+  e.g.
+  ```
+  .settings-view {
+    font-size: 10px;
+  }
+  ```
 
 ## Packages
 List and description of packages installed on my atom install
@@ -126,7 +143,7 @@ Local Config Item displayed in lower left of atom
 
 ### Terminal *
 Open bash terminal inside of atom.
- - [ ] Terminal From Nuclide?
+ - [x] Terminal From Nuclide? NO (ATOM-IDE-UI comes with one)
 `nterminal` or `Ctrl + Shift + T` - open terminal panel  
 
 
@@ -149,16 +166,27 @@ Autocomplete for require/import statements of packages
  - [ ] Investigate Autocomplete Webpack Support
  - [ ] AutoComplete Babel Plugin Module Resolver?
 
-### Autocomplete Plus (Core) ?
+### Autocomplete Plus (Core)
 Basic autocomplete based on open buffers
  - Opens on keystroke (may want to test disable)
- - [ ] Explore Autocomplete settings
+ - [x] Explore Autocomplete settings
+  - Delay
+  - Minimum Visible
+  - Confirm Keymap
+  - File Glob Blacklist (e.g. `*.md`)
+  - Atom "scope" blacklist
+  - Min word length (default 3)
+  - backspace trigger autocomplete? (default off)
+  - alternate scoring? (default on)
+  - local bonus (default on)
+  - move [away] to cancel? (default off)
 `Ctrl + Space` - activate autocomplete  
 
-### Autoflow (Core) ?
+### Autoflow (Core)
 Format the selected section to have lines less than max line length (80)  
 `alt + cmd + q` - toggle autoflow  
- - [ ] Look into autoflow?
+ - [..] Look into autoflow
+  - garbage in `.md` files
 
 ### Bookmarks (Core)
 Toggle between locations in atom files  
@@ -167,22 +195,24 @@ Toggle between locations in atom files
 `bookn` OR `F2` - Next bookmark (in file)  
 `bookp` OR `Shift + F2` - Previous Bookmark (in file)  
 
-### Busy Signal ?
-Package API for displaying in progress tasks  
-  - [ ] Look into Busy Signal
+### Busy Signal --
+Package API for displaying in progress tasks
+  - (probably installed by other package)
+  - IDEA: Look into Busy Signal for other ideas
 
-### Color Picker ?
+### Color Picker --
 Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
- - [ ] Enable/Remove Color Picker
+ - Enable/Remove Color Picker if ever needed
 
-### DocBlockr ?
+### DocBlockr *
 Helper package for writing documentation...  
  - Auto create comment documentation blocks
- - [ ] Enable DocBlockr?
+ - [x] Enable DocBlockr
 
 ### Atom IDE UI *
 UIs to support language services and debuggers
  - [ ] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
+ - IDEA: Markdown outline?
 
 #### IDE-CSS ?
 Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
@@ -203,6 +233,8 @@ Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
  - go to definition (hover over symbol and click while holding `cmd`)
  - type hints when hovering over symbols
  - Outline of flow files
+  - make sure flow server is running for project:
+   - new terminal, `./node_modules/.bin/flow start`
 
 ### IDE-Typescript --
 Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
@@ -215,18 +247,20 @@ Enhancements for UI to improve Typescript Development **Requires atom-ide-ui pac
  - Signature help
  - TODO: Explore IDE-Typescript Later
 
-### Git Log ?
+### ~~Git Log~~
 Graphs Git Commits - `Git Log: Show`
- - [ ] Enable Git Log?
+ - [x] Enable Git Log (Nah, not now)
 
-### Highlight Selected ?
+### Highlight Selected *
 Highlight selected word by double clicking  
- - [ ] Enable Highlight Selected?
+ - [x] Enable Highlight Selected
 
-### Intentions ??
+### Intentions
 API to show intentions? in atom  
   `Ctrl + Enter` to  open list of intentions  
-  - [ ] Test intentions
+  - [x] Test intentions
+   - Weird package by the colorpicker guy (for displaying quick items in editor)
+  - IDEA: maybe use intentions in other projects?
 
 ### Language Babel *
 Language Grammar for ES2016 and ESnext, including JSX syntax
@@ -261,9 +295,9 @@ Or can attach to external process if you pass `--debug=<port>` to node process t
 Collection of features for Atom to provide IDE like functionality. From Facebook.
  - [ ] Look into full Nuclide feature list: https://nuclide.io/docs/
 
-### Pigments ?
+### Pigments *
 display colors in the text editor via highlights over the color code
- - [ ] Enable/Remove Pigments?
+ - [x] Enable Pigments?
 
 ### Prettier-Atom ?
   - Automatically format on save (after enabling in settings)

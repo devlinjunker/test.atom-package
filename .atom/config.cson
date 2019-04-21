@@ -3,5 +3,19 @@
 #  "findUsingRegex": "/(${TODOS}|- \\[(?:(?:\\.\\.)| )\\])[:;.]+\d*($|\\s?.*$|[\\{\\[\\(].+$)/g"
 #  "showInTable": ["Text", "Type", "Path", "Line"]
 
-# "todo":
-#  "a_pattern": "(?:TODO\:.+|- \\[ \\] .+)"
+"atom-ide-ui": ""
+
+"ide-flowtype": ""
+
+"javascript-refactor": ""
+
+"language-babel": ""
+
+"todo":
+  "a_pattern":"(?:(TODO|IDEA):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+
+"highlight-selected": ""
+
+"pigments": ""
+
+"docblockr": ""
