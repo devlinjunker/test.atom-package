@@ -5,17 +5,27 @@
 
 "atom-ide-ui": ""
 
+"ide-css": ""
+
+"ide-html": ""
+
 "ide-flowtype": ""
 
-"javascript-refactor": ""
+"linter-eslint":
+  "autofix":
+    "fixOnSave": true
 
 "language-babel": ""
 
-"todo":
-  "a_pattern":"(?:(TODO|IDEA):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+"hyperclick": ""
+
+"javascript-refactor": ""
 
 "highlight-selected": ""
 
-"pigments": ""
-
 "docblockr": ""
+
+"todo":
+  "a_pattern":"(?:(TODO|IDEA|Q):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+
+"pigments": ""

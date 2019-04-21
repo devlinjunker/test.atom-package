@@ -1,6 +1,6 @@
 'use babel';
 
-import TestPackage from '../lib/test-package';
+// import TestPackage from '../lib/test-package';
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -32,10 +32,10 @@ describe('TestPackage', () => {
       runs(() => {
         expect(workspaceElement.querySelector('.test-package')).toExist();
 
-        let testPackageElement = workspaceElement.querySelector('.test-package');
+        const testPackageElement = workspaceElement.querySelector('.test-package');
         expect(testPackageElement).toExist();
 
-        let testPackagePanel = atom.workspace.panelForItem(testPackageElement);
+        const testPackagePanel = atom.workspace.panelForItem(testPackageElement);
         expect(testPackagePanel.isVisible()).toBe(true);
         atom.commands.dispatch(workspaceElement, 'test-package:toggle');
         expect(testPackagePanel.isVisible()).toBe(false);
@@ -63,7 +63,7 @@ describe('TestPackage', () => {
 
       runs(() => {
         // Now we can test for view visibility
-        let testPackageElement = workspaceElement.querySelector('.test-package');
+        const testPackageElement = workspaceElement.querySelector('.test-package');
         expect(testPackageElement).toBeVisible();
         atom.commands.dispatch(workspaceElement, 'test-package:toggle');
         expect(testPackageElement).not.toBeVisible();

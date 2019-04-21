@@ -209,21 +209,27 @@ Helper package for writing documentation...
  - Auto create comment documentation blocks
  - [x] Enable DocBlockr
 
+### Hyperclick *
+ Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
+  - triggered by two events:
+    - `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
+    - `<cmd-mousedown>` performs the action associated with the clickable text.
+    - `<cmd-alt-enter>` performs the action on the text under the cursor.
+  - [ ] Hyperclick for vanilla javascript files? (only working in flow files right now)
+
 ### Atom IDE UI *
 UIs to support language services and debuggers
  - [ ] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
  - IDEA: Markdown outline?
 
-#### IDE-CSS ?
+#### IDE-CSS *
 Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
  - Rules outline in Outline Panel
  - Tooltips for css selector/property and linters
- - [ ] Explore IDE CSS
 
-#### IDE-HTML ?
+#### IDE-HTML *
 Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
  - HTML DOM Outline in Outline Panel
- - [ ] Explore IDE HTML
 
 #### IDE-Flowtype *
 Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
@@ -255,7 +261,7 @@ Graphs Git Commits - `Git Log: Show`
 Highlight selected word by double clicking  
  - [x] Enable Highlight Selected
 
-### Intentions
+### ~~Intentions~~
 API to show intentions? in atom  
   `Ctrl + Enter` to  open list of intentions  
   - [x] Test intentions
@@ -265,11 +271,18 @@ API to show intentions? in atom
 ### Language Babel *
 Language Grammar for ES2016 and ESnext, including JSX syntax
 
-### Linter + Linter ESLint + Linter UI Default ?
+### ~~Linter + Linter UI Default +~~  Linter ESLint *
 Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
  - Uses the project version of eslint
  - Linter-tslint too
+ - atom-ide-diagnostics also displays linter messages (conflicts with linter?)
+ [x] Install linter-eslint
+  - Seems to work with Atom-IDE-UI diagnostics
+  - Enable autosave to get rules fixed on save (whenever possible)
+  - [x] Format this project according to my `eslint.yaml`
+  - [ ] Enable HTML Linting?
 
+### Mocha Test Runner
   Run Mocha Test Files or Specific specs using the project mocha installation.
   - `ctrl + alt + m` run current file (or single mocha block if cursor on that line)
 
@@ -299,14 +312,12 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
 display colors in the text editor via highlights over the color code
  - [x] Enable Pigments?
 
-### Prettier-Atom ?
+### ~~Prettier-Atom~~
   - Automatically format on save (after enabling in settings)
   - or `ctrl + option + f`
-  - [ ] Prettier/eslint global install? or just enable and has its own?
-  - [ ] Format this project according to my `eslint.yaml`
-  - [ ] Look into if this autosaves with prettiers rules vs eslint?
+  - Q: Prettier/eslint global install? or just enable and has its own?
+  - Q: Look into if this autosaves with prettiers rules vs eslint?
    - difference between autosave, eslint commandline and prettier commandline
-  - [ ] Combine prettier-atom with eslint (see package readme)
 
 ### React --
 React Support (JSX, Indentation, Snippets, Autocomplete and reformatting?)
