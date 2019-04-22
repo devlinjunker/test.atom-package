@@ -38,13 +38,22 @@
 `ternjsres` - restart ternjs server  
 
 
+## Installing Atom for Package development
+Atom Development and set up for more configuration
+ - Install newest version
+ - Get [atom](https://github.com/atom/atom) repo from Github
+ - install with `./script/bootstrap` (maybe `./script/build`)
+ - Ensure package tests can run by cloning this package and attempting to run tests with `ctrl + alt(opt) + cmd` (dialog should appear and test should fail)
+ - [ ] Spec files with .spec conventions? or should I follow all package spec conventions
+
 ## Atom configuration
+Configuring Atom with my plugins
  - Install `atomic-management` package to get project specific atom packages and settings.
  - Configure project specific settings in `./.atom/config.cson`  
   e.g.
   ```
   "todo":
-    "a_pattern":"(?:(TODO|IDEA):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+    "a_pattern":"(?:(TODO|IDEA|Q):.+|- \\[(\\.\\.| |\\?)\\] .+)"
   ```
  - Configure global settings in `~/.atom/config.cson`
  - Configure Custom Key-mappings in `~/.atom/keymap.cson`
@@ -60,71 +69,72 @@
 List and description of packages installed on my atom install
 
 ### Basic
-- about  
-- autocomplete-*  
-- language-*  
-  - c, Clojure, coffee-script, c-sharp, css, gfm, git, go, html, hyperlink, java, javascript, JSON, less, make, mustache, objective-c, perl, php, property-list, python, ruby, ruby-on-rails, rust, sass, shellscript, source, sql, text, todo, toml, typescript, xml, yaml  
-  - Babel/ES6 (not basic/default)
-- settings-panel  
-- archive-view - see files inside of archive files  
-- autoflow - format to have less than 80 characters (or config editor.preferredLineLength value)  
-- autosave - Save Editors as they lose focus or are closed  
-- welcome - basic welcome with useful information
+Basic Atom Packages
+  - about  
+  - autocomplete-*  
+  - language-*  
+    - c, Clojure, coffee-script, c-sharp, css, gfm, git, go, html, hyperlink, java, javascript, JSON, less, make, mustache, objective-c, perl, php, property-list, python, ruby, ruby-on-rails, rust, sass, shellscript, source, sql, text, todo, toml, typescript, xml, yaml  
+    - Babel/ES6 (not basic/default)
+  - settings-panel  
+  - archive-view - see files inside of archive files  
+  - autoflow - format to have less than 80 characters (or config editor.preferredLineLength value)  
+  - autosave - Save Editors as they lose focus or are closed  
+  - welcome - basic welcome with useful information
 
-- background-tips - display tips for atom?   
-- bookmarks - mark lines and jump back to them  
-  - [x] Look into
-  - IDEA: Bookmarks with atom project manager?  
-- bracket matcher - highlight matching bracket  
+  - background-tips - display tips for atom?   
+  - bookmarks - mark lines and jump back to them  
+    - [x] Look into
+    - IDEA: Bookmarks with atom project manager?  
+  - bracket matcher - highlight matching bracket  
 
-- dalek -  EXTERMINATEs core packages installed in ~/.atom/packages
-  - informs you of if core packages are installed in community packges directory (BAD)
-- deprecation-cop - show list of deprecated calls  
-  - [x] Look into deprecation-cop
-   - simple page with list of deprecated calls? (should be empty)
-   - also has link to atom package update list
-- dev-live-reload - reload atom themes atom packages automatically  
-- encoding selector - select encoding to use with `ctrl+shift+U`  
-- exception-reporting - reports uncaught atom exceptions to atom team via bugsnag.com  
-  - [x] Look into bugsnag.com?  
-- find-and-replace - within buffers and across project  
-- fuzzy-finder - open editor to file with cmd+t  
-- git-diff - marks lines in the editor gutter that have been changed since last - commit  
-- github - integration with Github  
- - [x] Explore github integration
-  - Indicator in bottom right of atom window
-  - TODO: Github-integration requires authorization with github
-- go-to-line - jump to line with `ctrl+g`  
-- image-view - open images in editor  
-- incompatible-packages - show incompatible packages  
+  - dalek -  EXTERMINATEs core packages installed in ~/.atom/packages
+    - informs you of if core packages are installed in community packges directory (BAD)
+  - deprecation-cop - show list of deprecated calls  
+    - [x] Look into deprecation-cop
+     - simple page with list of deprecated calls? (should be empty)
+     - also has link to atom package update list
+  - dev-live-reload - reload atom themes atom packages automatically  
+  - encoding selector - select encoding to use with `ctrl+shift+U`  
+  - exception-reporting - reports uncaught atom exceptions to atom team via bugsnag.com  
+    - [x] Look into bugsnag.com?  
+  - find-and-replace - within buffers and across project  
+  - fuzzy-finder - open editor to file with cmd+t  
+  - git-diff - marks lines in the editor gutter that have been changed since last - commit  
+  - github - integration with Github  
+   - [x] Explore github integration
+    - Indicator in bottom right of atom window
+    - TODO: Github-integration requires authorization with github
+  - go-to-line - jump to line with `ctrl+g`  
+  - image-view - open images in editor  
+  - incompatible-packages - show incompatible packages  
 
 
-- keybinding-resolver - Shows what commands a keybinding resolves to. Can open with `cmd + .`
- - [x] Look into
-- line-ending-selector  - displays the current line ending type in bottom bar of atom (CRLF, LF, Mixed)
+  - keybinding-resolver - Shows what commands a keybinding resolves to. Can open with `cmd + .`
+   - [x] Look into
+  - line-ending-selector  - displays the current line ending type in bottom bar of atom (CRLF, LF, Mixed)
 
-- link - opens http links under the cursor  
-- markdown-preview - open rendered version of markdown with `ctrl+shift+m`  
-- metrics - send metrics to atom team  
-- notifications - tidy way to display atom notifications  
-- open-on-github - View active file on Github  
- - `alt-g` + `o/b/h/i/p/r/c` (open file, open ©©blame, history, issues, pulls, compare, copy-url)
-- package-generator - generate new/sample Atom package  
-- snippets - expand snippets matching prefix with `tab`   
-- spell-check - highlight misspelled words  
-- status-bar - shows current cursor position/path/grammar, git info, etc  
-- styleguide - shows all of the UI components used in Atom. Useful for reference when developing themes and packages
-- symbols-view - jump to function/method with `cmd-r`  
-- tabs - display selectable tabs for each editor  
-- timecop - displays information about atom load time  
- - [x] Investigate Timecop
-  - Panel with view of package and theme loading/activation times
-- tree-view - open and explore files in current project  
-- update-package-dependencies - should only be used in atom packages. Updates all dependences referenced in package.json
- - TODO: Attempt update-package-dependencies with project manager atom package
+  - link - opens http links under the cursor  
+  - markdown-preview - open rendered version of markdown with `ctrl+shift+m`  
+  - metrics - send metrics to atom team  
+  - notifications - tidy way to display atom notifications  
+  - open-on-github - View active file on Github  
+   - `alt-g` + `o/b/h/i/p/r/c` (open file, open ©©blame, history, issues, pulls, compare, copy-url)
+  - package-generator - generate new/sample Atom package  
+  - snippets - expand snippets matching prefix with `tab`   
+  - spell-check - highlight misspelled words  
+  - status-bar - shows current cursor position/path/grammar, git info, etc  
+  - styleguide - shows all of the UI components used in Atom. Useful for reference when developing themes and packages
+  - symbols-view - jump to function/method with `cmd-r`  
+  - tabs - display selectable tabs for each editor  
+  - timecop - displays information about atom load time  
+   - [x] Investigate Timecop
+    - Panel with view of package and theme loading/activation times
+  - tree-view - open and explore files in current project  
+  - update-package-dependencies - should only be used in atom packages. Updates all dependences referenced in package.json
+   - TODO: Attempt update-package-dependencies with project manager atom package
 
-- whitespace - strips/adds trailing whitespace when editor saved
-- wrap-guide - displays line at 80th character (or uses editor.preferredLineLength)
+  - whitespace - strips/adds trailing whitespace when editor saved
+  - wrap-guide - displays line at 80th character (or uses editor.preferredLineLength)
 
 ### Atomic Management *
 Enables Project specific configuration for Packages
@@ -132,19 +142,19 @@ Enables Project specific configuration for Packages
  2. Create `config.cson` with `.atom/` directory
  3. Add Project config inside `config.cson`
 
-Supports all atom configrations:
+ Supports all atom configrations:
  - Specifying settings for global namespace (`*`) vs individual files (`.html`)
   - Finding proper scope name: https://flight-manual.atom.io/using-atom/sections/basic-customization/#finding-a-languages-scope-name
  - Themes
  - Packages to Enable/Disable
  - Package-specific configurtions
 
-Local Config Item displayed in lower left of atom
+ Local Config Item displayed in lower left of atom
 
 ### Terminal *
 Open bash terminal inside of atom.
  - [x] Terminal From Nuclide? NO (ATOM-IDE-UI comes with one)
-`nterminal` or `Ctrl + Shift + T` - open terminal panel  
+ `nterminal` or `Ctrl + Shift + T` - open terminal panel  
 
 ### DocBlockr *
 Helper package for writing documentation...  
@@ -178,13 +188,14 @@ Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
 #### IDE-Flowtype *
 Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
  - Flow Autocomplete is bumped to top of autocomplete list
-   IDEA: Show which class (parent class) a property/method is from
+  - IDEA: Show which class (parent class) a property/method is from
  - UI indications of bad flow code
  - go to definition (hover over symbol and click while holding `cmd`)
  - type hints when hovering over symbols
  - Outline of flow files
   - make sure flow server is running for project:
    - new terminal, `./node_modules/.bin/flow start`
+ - [ ] Look into "find references" flow package
 
 #### IDE-Typescript --
 Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
@@ -201,7 +212,7 @@ Enhancements for UI to improve Typescript Development **Requires atom-ide-ui pac
  Language Grammar for ES2016 and ESnext, including JSX syntax
 
 ### ~~Linter + Linter UI Default +~~  Linter ESLint *
- Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
+Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
   - Uses the project version of eslint
   - Linter-tslint too
   - atom-ide-diagnostics also displays linter messages (conflicts with linter?)
@@ -240,11 +251,15 @@ Panel for displaying all TODOs in the project files (ignoring node_modules)
   - IDEA: add filtering in panel
   - IDEA: Remember collapsed todo sections
 
+### Highlight Selected *
+Highlight selected word by double clicking  
+ - [x] Enable Highlight Selected
+
 
 ### Atom-TernJS --
 Use TernJS to follow JavaScript References/Definitions for functions  
-`ternjsres` - restart ternjs server  
-`ternjsref` - get references to a method elsewhere in workspace  
+ `ternjsres` - restart ternjs server  
+ `ternjsref` - get references to a method elsewhere in workspace  
  - Need to start the tern server during development (AND CLOSE WHEN DONE)
  - Each project needs to be configured when created
  - Doesn't work with flow? ide-flowtype has it's own autocompletes though..
@@ -252,7 +267,7 @@ Use TernJS to follow JavaScript References/Definitions for functions
  - [ ] Explore ternjs/atom-ternjs with javascript
 
 ### Atom-Typescript --
- Typescript plugin for Atom. Lots of settings
+Typescript plugin for Atom. Lots of settings
  - TODO: read up on https://atom.io/packages/atom-typescript
 
 ### Autocomplete Modules ?
@@ -285,10 +300,10 @@ Format the selected section to have lines less than max line length (80)
 
 ### Bookmarks (Core)
 Toggle between locations in atom files  
-`book` - View all  
-`bookt` OR `Command + F2` - Set bookmark  
-`bookn` OR `F2` - Next bookmark (in file)  
-`bookp` OR `Shift + F2` - Previous Bookmark (in file)  
+  `book` - View all  
+  `bookt` OR `Command + F2` - Set bookmark  
+  `bookn` OR `F2` - Next bookmark (in file)  
+  `bookp` OR `Shift + F2` - Previous Bookmark (in file)  
 
 ### Busy Signal --
 Package API for displaying in progress tasks
@@ -303,10 +318,6 @@ Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
 Graphs Git Commits - `Git Log: Show`
  - [x] Enable Git Log (Nah, not now)
 
-### Highlight Selected *
-Highlight selected word by double clicking  
- - [x] Enable Highlight Selected
-
 ### ~~Intentions~~
 API to show intentions? in atom  
   `Ctrl + Enter` to  open list of intentions  
@@ -315,18 +326,18 @@ API to show intentions? in atom
   - IDEA: maybe use intentions in other projects?
 
 ### Mocha Test Runner ?
-  Run Mocha Test Files or Specific specs using the project mocha installation.
+Run Mocha Test Files or Specific specs using the project mocha installation.
   - `ctrl + alt + m` run current file (or single mocha block if cursor on that line)
   - [ ] Install Mocha Test Runner?
 
 ### Node Debugger ?
-  Basic debugger for node projects. When in js files, begin debugger and open panels with `F5`.
+Basic debugger for node projects. When in js files, begin debugger and open panels with `F5`.
   - Toggle breakpoint `F9`
   - Step over `F10`
   - Step in `F11`
   - Step out `Shift + F11`
 
-**Config** (not sure where to store)
+ **Config** (not sure where to store)
   - nodePath - path to node.js executable, default: platform dependent
   - nodeArgs - arguments sent to node.js during launch, default: ''
   - appArgs - arguments sent to the application during launch, default: ''
@@ -335,7 +346,7 @@ API to show intentions? in atom
   - env - the process environment variables (if left empty the environment will be inherited), default: ''
   - scriptMain - the preferred startup file, default: ''
 
-Or can attach to external process if you pass `--debug=<port>` to node process to debug.
+ Or can attach to external process if you pass `--debug=<port>` to node process to debug.
 
 ### Nuclide --
 Collection of features for Atom to provide IDE like functionality. From Facebook.
@@ -360,6 +371,7 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
  - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
 
 ### ~~Prettier-Atom~~
+ Prettier Integration for Atom
   - Automatically format on save (after enabling in settings)
   - or `ctrl + option + f`
   - Q: Prettier/eslint global install? or just enable and has its own?

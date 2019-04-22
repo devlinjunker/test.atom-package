@@ -16,6 +16,7 @@ env:
   node: true
   # mocha: true
   atomtest: true
+  jasmine: true
 
 
 plugins:
@@ -29,6 +30,7 @@ extends:
 #  - prettier/flowtype
 #  - plugin:flowtype/recommended
 
+# NOTE: globals can also be sepecified on a per file basis with /* global <var_name> */
 globals:
   expect: readonly
   sandbox: readonly
