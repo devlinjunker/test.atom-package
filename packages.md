@@ -1,42 +1,17 @@
 # Exploring Atom
 
-## Keybindings to Remember
-`ctrl + G` - jump to line  
+## Keybindings and Commands
+See the ['Commands'](./commands.md) file for a full list
+
+### Movement without moving hands
 `ctrl + F/B` - forward/back character  
-`ctrl + A/E` - front/end of line  
 `ctrl + Y/N` - up down line  
+`ctrl + A/E` - jump to front/end of line  
 
-`cmd + \` toggle project tree-view
+`cmd + P` - find file
+`cmd + shift + P` - toggle command pallete
 
-`cmd + P` - find file in project to open  
-`cmd + T` fuzzy find file  
-
-`cmd + D/U` - find and select next reference (undo)
-
-`cmd + F2` - toggle bookmark  
-`(shift) + F2` - cycle (backward) bookmarks  
-
-`ctrl + space` activate autocomplete
-
-`cmd + .` toggle keybinding view (to show which commands relate to keybindings)  
-`Ctrl + Shift + M` toggle markdown preview
-
-**From Packages**
-
-`Alt + O` - Toggle outline panel  (IDE)
-
-`Command + Shift + T` - Toggle Todo List  (TODO)
-
-`Command + Shift + C` toggle color picker  (Color Picker)
-
-`Ctrl + Shift + T` - New Terminal Pane (Atom-IDE-UI)
-
-## Pallete Commands to Remember
-`book` - to view all bookmarks  
-
-`nterminal` - opens new terminal window in atom  
-`ternjsres` - restart ternjs server  
-
+ - [ ] Look into serving html files with atom? (hitting api elsewhere)
 
 ## Installing Atom for Package development
 Atom Development and set up for more configuration
@@ -44,7 +19,7 @@ Atom Development and set up for more configuration
  - Get [atom](https://github.com/atom/atom) repo from Github
  - install with `./script/bootstrap` (maybe `./script/build`)
  - Ensure package tests can run by cloning this package and attempting to run tests with `ctrl + alt(opt) + cmd` (dialog should appear and test should fail)
- - [ ] Spec files with .spec conventions? or should I follow all package spec conventions
+ - [ ] atom package test files with `.spec` conventions? or should I follow typical atom package `-spec` conventions
 
 ## Atom configuration
 Configuring Atom with my plugins
@@ -54,10 +29,21 @@ Configuring Atom with my plugins
   ```
   "todo":
     "a_pattern":"(?:(TODO|IDEA|Q):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+  "linter-eslint":
+    "autofix":
+      "fixOnSave": true
   ```
  - Configure global settings in `~/.atom/config.cson`
- - Configure Custom Key-mappings in `~/.atom/keymap.cson`
- - Configure UI View CSS settings in `~/.atom/styles.less`  
+ - Configure Custom Key-mappings in `~/.atom/keymap.cson`  
+  e.g.
+  ```
+  "atom-workspace":
+    "shift-cmd-T": "todo:toggle"
+
+  ".editor":
+    "ctrl-y": "core:move-up"
+  ```
+ - Configure UI View CSS settings in `~/.atom/styles.less`   
   e.g.
   ```
   .settings-view {
@@ -135,6 +121,36 @@ Basic Atom Packages
 
   - whitespace - strips/adds trailing whitespace when editor saved
   - wrap-guide - displays line at 80th character (or uses editor.preferredLineLength)
+
+### Autocomplete Plus (Core)
+Basic autocomplete based on open buffers
+ - Opens on keystroke (may want to test disable)
+ - [x] Explore Autocomplete settings
+  - Delay
+  - Minimum Visible
+  - Confirm Keymap
+  - File Glob Blacklist (e.g. `*.md`)
+  - Atom "scope" blacklist
+  - Min word length (default 3)
+  - backspace trigger autocomplete? (default off)
+  - alternate scoring? (default on)
+  - local bonus (default on)
+  - move [away] to cancel? (default off)
+`Ctrl + Space` - activate autocomplete  
+
+### Autoflow (Core)
+Format the selected section to have lines less than max line length (80)  
+`alt + cmd + q` - toggle autoflow  
+ - [x] Look into autoflow
+  - garbage in `.md` files
+  - garbage in `.js` files too... not useful it seems
+
+### Bookmarks (Core)
+Toggle between locations in atom files  
+    `book` - View all  
+    `bookt` OR `Command + F2` - Set bookmark  
+    `bookn` OR `F2` - Next bookmark (in file)  
+    `bookp` OR `Shift + F2` - Previous Bookmark (in file)  
 
 ### Atomic Management *
 Enables Project specific configuration for Packages
@@ -229,8 +245,8 @@ display colors in the text editor via highlights over the color code
 ### javascript-refactor *
 Stand-alone package for refactoring imported javascript file locations on rename
   - Select `Rename (with Refactor Support)` from context menu in file tree
-  - IDEA: Include in default rename?
-  - IDEA: Display message/indicator when refactoring
+  - IDEA: Include Refactor in default rename?
+  - IDEA: Display message/indicator when refactoring (busy signal?)
 
 ### Todo *
 Panel for displaying all TODOs in the project files (ignoring node_modules)
@@ -256,74 +272,11 @@ Highlight selected word by double clicking
  - [x] Enable Highlight Selected
 
 
-### Atom-TernJS --
-Use TernJS to follow JavaScript References/Definitions for functions  
- `ternjsres` - restart ternjs server  
- `ternjsref` - get references to a method elsewhere in workspace  
- - Need to start the tern server during development (AND CLOSE WHEN DONE)
- - Each project needs to be configured when created
- - Doesn't work with flow? ide-flowtype has it's own autocompletes though..
- - Q: ternjs vs atom-ternjs
- - [ ] Explore ternjs/atom-ternjs with javascript
-
-### Atom-Typescript --
-Typescript plugin for Atom. Lots of settings
- - TODO: read up on https://atom.io/packages/atom-typescript
-
 ### Autocomplete Modules ?
 Autocomplete for require/import statements of packages
- - [ ] Investigate Autocomplete Webpack Support
- - [ ] AutoComplete Babel Plugin Module Resolver?
+  - [ ] Investigate Autocomplete Webpack Support
+  - [ ] AutoComplete Babel Plugin Module Resolver?
 
-### Autocomplete Plus (Core)
-Basic autocomplete based on open buffers
- - Opens on keystroke (may want to test disable)
- - [x] Explore Autocomplete settings
-  - Delay
-  - Minimum Visible
-  - Confirm Keymap
-  - File Glob Blacklist (e.g. `*.md`)
-  - Atom "scope" blacklist
-  - Min word length (default 3)
-  - backspace trigger autocomplete? (default off)
-  - alternate scoring? (default on)
-  - local bonus (default on)
-  - move [away] to cancel? (default off)
-`Ctrl + Space` - activate autocomplete  
-
-### Autoflow (Core)
-Format the selected section to have lines less than max line length (80)  
-`alt + cmd + q` - toggle autoflow  
- - [x] Look into autoflow
-  - garbage in `.md` files
-  - garbage in `.js` files too... not useful it seems
-
-### Bookmarks (Core)
-Toggle between locations in atom files  
-  `book` - View all  
-  `bookt` OR `Command + F2` - Set bookmark  
-  `bookn` OR `F2` - Next bookmark (in file)  
-  `bookp` OR `Shift + F2` - Previous Bookmark (in file)  
-
-### Busy Signal --
-Package API for displaying in progress tasks
-  - (probably installed by other package)
-  - IDEA: Look into Busy Signal for other ideas
-
-### Color Picker --
-Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
- - Enable/Remove Color Picker if ever needed
-
-### ~~Git Log~~
-Graphs Git Commits - `Git Log: Show`
- - [x] Enable Git Log (Nah, not now)
-
-### ~~Intentions~~
-API to show intentions? in atom  
-  `Ctrl + Enter` to  open list of intentions  
-  - [x] Test intentions
-   - Weird package by the colorpicker guy (for displaying quick items in editor)
-  - IDEA: maybe use intentions in other projects?
 
 ### Mocha Test Runner ?
 Run Mocha Test Files or Specific specs using the project mocha installation.
@@ -348,6 +301,39 @@ Basic debugger for node projects. When in js files, begin debugger and open pane
 
  Or can attach to external process if you pass `--debug=<port>` to node process to debug.
 
+
+### xatom-debug ?
+Debugger for Atom. Basic UI For Debugger.
+  - Debuggers for Node 6.3 and Chrome??
+  - [ ] Look into xatom debugger!
+
+### xatom-debug-nodejs ?
+NodeJS Debugger Plugin for xatom-debug
+
+
+### Atom-TernJS --
+Use TernJS to follow JavaScript References/Definitions for functions  
+ `ternjsres` - restart ternjs server  
+ `ternjsref` - get references to a method elsewhere in workspace  
+ - Need to start the tern server during development (AND CLOSE WHEN DONE)
+ - Each project needs to be configured when created
+ - Doesn't work with flow? ide-flowtype has it's own autocompletes though..
+ - Q: ternjs vs atom-ternjs
+ - [ ] Explore ternjs/atom-ternjs with javascript
+
+### Atom-Typescript --
+Typescript plugin for Atom. Lots of settings
+ - TODO: read up on https://atom.io/packages/atom-typescript
+
+### Busy Signal --
+Package API for displaying in progress tasks
+  - (probably installed by other package)
+  - IDEA: Look into Busy Signal for other ideas
+
+### Color Picker --
+Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
+ - Enable/Remove Color Picker if ever needed
+
 ### Nuclide --
 Collection of features for Atom to provide IDE like functionality. From Facebook.
  - [x] Look into full Nuclide feature list: https://nuclide.io/docs/
@@ -370,6 +356,23 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
  - Optional: Nuclide Toolbar
  - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
 
+### React --
+React Support (JSX, Indentation, Snippets, Autocomplete and reformatting?)
+ - https://orktes.github.io/atom-react/
+ - TODO: Look into React Support Later?
+
+
+### ~~Git Log~~
+Graphs Git Commits - `Git Log: Show`
+  - [x] Enable Git Log (Nah, not now)
+
+### ~~Intentions~~
+API to show intentions? in atom  
+   `Ctrl + Enter` to  open list of intentions  
+   - [x] Test intentions
+    - Weird package by the colorpicker guy (for displaying quick items in editor)
+   - IDEA: maybe use intentions in other projects?
+
 ### ~~Prettier-Atom~~
  Prettier Integration for Atom
   - Automatically format on save (after enabling in settings)
@@ -377,11 +380,6 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
   - Q: Prettier/eslint global install? or just enable and has its own?
   - Q: Look into if this autosaves with prettiers rules vs eslint?
    - difference between autosave, eslint commandline and prettier commandline
-
-### React --
-React Support (JSX, Indentation, Snippets, Autocomplete and reformatting?)
-  - https://orktes.github.io/atom-react/
-  - TODO: Look into React Support Later?
 
 ### ~~Refactor~~
 Enables Refactoring of code (in project? or just open files?).
@@ -417,11 +415,3 @@ More complex version of above. Less pretty
     - A little too complicated vs `todo` package
   - [x] ~~Other todo packages?~~
    - lanugage todo - snippets and syntax for todos? (in php?)
-
-### xatom-debug ?
-Debugger for Atom. Basic UI For Debugger.
- - Debuggers for Node 6.3 and Chrome??
- - [ ] Look into xatom debugger!
-
-### xatom-debug-nodejs ?
-NodeJS Debugger Plugin for xatom-debug

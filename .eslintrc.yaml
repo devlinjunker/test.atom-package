@@ -18,7 +18,6 @@ env:
   atomtest: true
   jasmine: true
 
-
 plugins:
   - prettier
   - flowtype
@@ -32,12 +31,15 @@ extends:
 
 # NOTE: globals can also be sepecified on a per file basis with /* global <var_name> */
 globals:
+  # chai
   expect: readonly
+  # sinon global if setting up test bootstrap
   sandbox: readonly
+  # atom
   atom: readonly
-  jasmine: readonly
-  runs: readonly
   document: readonly
+  runs: readonly
+  jasmine: readonly
 
 # Custom Rules Below
 rules:
