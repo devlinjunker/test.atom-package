@@ -22,7 +22,7 @@ Atom Development and set up for more configuration
  - Install newest version
  - Get [atom](https://github.com/atom/atom) repo from Github
  - install with `./script/bootstrap` (maybe `./script/build`)
- - Ensure package tests can run by cloning this package and attempting to run tests with `ctrl + alt(opt) + cmd` (dialog should appear and test should fail)
+ - Ensure package tests can run by cloning this package and attempting to run tests with `ctrl + alt(opt) + cmd + P` (dialog should appear and test should fail)
  - [ ] atom package test files with `.spec` conventions? or should I follow typical atom package `-spec` conventions
 
 ## Atom configuration
@@ -84,7 +84,7 @@ Basic Atom Packages
      - simple page with list of deprecated calls? (should be empty)
      - also has link to atom package update list
   - dev-live-reload - reload atom themes atom packages automatically  
-  - encoding selector - select encoding to use with `ctrl+shift+U`  
+  - encoding selector - select encoding to use with `ctrl + shift + U`  
   - exception-reporting - reports uncaught atom exceptions to atom team via bugsnag.com  
     - [x] Look into bugsnag.com?  
   - find-and-replace - within buffers and across project  
@@ -104,7 +104,7 @@ Basic Atom Packages
   - line-ending-selector  - displays the current line ending type in bottom bar of atom (CRLF, LF, Mixed)
 
   - link - opens http links under the cursor  
-  - markdown-preview - open rendered version of markdown with `ctrl+shift+m`  
+  - markdown-preview - open rendered version of markdown with `ctrl + shift + m`  
   - metrics - send metrics to atom team  
   - notifications - tidy way to display atom notifications  
   - open-on-github - View active file on Github  
@@ -121,7 +121,9 @@ Basic Atom Packages
     - Panel with view of package and theme loading/activation times
   - tree-view - open and explore files in current project  
   - update-package-dependencies - should only be used in atom packages. Updates all dependences referenced in package.json
-   - [ ] Attempt update-package-dependencies with project manager atom package
+   - [x] Attempt update-package-dependencies with project manager atom package
+    - Tried this, needs more dependencies haha, so try to remember?
+    - `updatedep`
 
   - whitespace - strips/adds trailing whitespace when editor saved
   - wrap-guide - displays line at 80th character (or uses editor.preferredLineLength)
@@ -348,7 +350,7 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
    - Format JS (For even more javascript ide tools)
     - Auto Add/Remove? Require statements/Types
     - [x] Look into FormatJS Package https://atom.io/packages/nuclide-format-js
-     - enabled, unsure if useful though. I'll have to try to remember to think about it
+     - Q: enabled, unsure if useful though. I'll have to try to remember to think about it
   - Debugger inspired by chrome tools
   - Task Runner toolbar (Build, test, run, debug)
   - Working Sets
