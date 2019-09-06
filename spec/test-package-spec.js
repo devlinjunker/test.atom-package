@@ -16,7 +16,7 @@ describe('TestPackage', () => {
   });
 
   describe('when the test-package:toggle event is triggered', () => {
-    it('hides and shows the modal panel', () => {
+    xit('hides and shows the modal panel', () => {
       // Before the activation event the view is not on the DOM, and no panel
       // has been created
       expect(workspaceElement.querySelector('.test-package')).not.toExist();
@@ -42,7 +42,7 @@ describe('TestPackage', () => {
       });
     });
 
-    it('hides and shows the view', () => {
+    xit('hides and shows the view', () => {
       // This test shows you an integration test testing at the view level.
 
       // Attaching the workspaceElement to the DOM is required to allow the

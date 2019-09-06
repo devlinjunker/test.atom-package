@@ -273,9 +273,9 @@ Panel for displaying all TODOs in the project files (ignoring node_modules)
   - Nice interface with nested TODOs based on file path
 
   **Settings**
-  - RegExp Pattern: `(?:(TODO|IDEA|Q):.+|- \[(\.\.| |\?)\] .+)`
+  - RegExp Pattern (`a_pattern`): `(?:(TODO|IDEA|Q):.+|- \[(\.\.| |\?)\] .+)`
   - RegExp Flags
-  - Ignore Paths: `**/node_modules/**, **/.git/**, **/build/**, **/public/**, **/defs/**, **/docs/**`
+  - Ignore Paths (`c_ignorePaths`): `**/node_modules/**, **/.git/**, **/build/**, **/public/**, **/defs/**, **/docs/**`
   - Key Binding Config
   - IDEA: Remember collapsed todo sections
   - IDEA: Checklist with different RegExp Matches
