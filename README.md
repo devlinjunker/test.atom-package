@@ -1,56 +1,91 @@
-# Hacking Atom
+# Atom Configuration and Hacking
 
-This is an example/practice package that can be loaded into atom. This README will contain notes for writing a custom package or them and I will likely also use this for notes for my atom installation and setup.
+This is an example/practice package that can be loaded into atom. This README will contain notes about how to
+set up atom in my default configuration for development and on the steps I have taken to write custom packages.
 
-One window with package code and one window for testing. Quickly restarting atom during development: Use `window:reload` in the atom command pallete.
+Full atom developers guide [here](https://flight-manual.atom.io/hacking-atom/)
 
+## Dependencies
 
-## init.coffee
-init.coffee is a file created in `~/.atom` that can be used to hack and customize atom.
+- Atom
+- Node+NPM
+- See [Packages List](/packages.md?id=packages)
 
+## How to Use
 
-## Atom Packages Directory
-Atom looks for packages in the `.atom/packages/` directory. The package generator that comes with atom creates symbolic links from this directory to the directory that the generated package is created in.
-
-### Generating Blank Packages
-`Package Generator: Generate Package` in the atom command pallete
-
-
-
-
-## Directory Structure
-The directory structure is important as it is known by atom to correctly load the package.
-
-
-## Package.json
-Beyond the typical npm package details, the atom package contains some additional properties.  
-`main` - this is the main entry file, otherwise atom will look for index.coffee or index.js  
-`activationCommands` - lists the commands that are specified in the created package
+**Installing this test package in atom:**
+ - Ensure atom is installed
+ - Clone this package
+    - into `~/.atom/packages`, or
+    - into whichever directory and create a symbolic link with:
+     `ln -s <cloned_repo_location> ~/.atom/packages/test.atom.package`
+ - Open repository and install node packages with `npm install -D`
+ - Open atom (or reload if already open)
 
 
-## `lib` Directory
-Contains the code for the package:  
-### Entry File
-This will return an object with some important properties:  
-`activate()` - this will be called when the package is initialized on atom startup. This should create the view for this package and set up the atom bindings that control the package functions. It will be passed the  state from the last time the package was serialized (if `serialize` implemented).  
-`deactivate()` - called when the window is shutting down, should cleanup the package objects. If watching any files or opening any external resources then release these here.  
-`serialize()` - called when the window is shutting down to return JSON representing the state. Passed to activate on window restore.
-`intialize()` - similar to activate but called before workspace is guaranteed
+**Configuring Atom:**
+ - Install `atomic-management` package to get project specific atom packages and settings.
+ - Configure project specific settings in `./.atom/config.cson`  
+  e.g.
+  ```
+  "todo":
+    "a_pattern":"(?:(TODO|IDEA|Q):.+|- \\[(\\.\\.| |\\?)\\] .+)"
+  "linter-eslint":
+    "autofix":
+      "fixOnSave": true
+  ```
+ - Configure global settings in `~/.atom/config.cson`
+ - Configure Custom Key-mappings in `~/.atom/keymap.cson`  
+  e.g.
+  ```
+  "atom-workspace":
+    "shift-cmd-T": "todo:toggle"
 
-### View File
-This example is a class that is created to define how the UI elements will appear for this package. Defines and creates the DOM elements
+  ".editor":
+    "ctrl-y": "core:move-up"
+  ```
+ - Configure UI View CSS settings in `~/.atom/styles.less`   
+  e.g.
+  ```
+  .settings-view {
+    font-size: 10px;
+  }
+  ```
+
+## TODO:
+
+- [ ] TODO: Look into serving html files with atom? (hitting api elsewhere)
+- [ ] IDEA: Atom Package with git commit rules/warnings (eslint?)
+    - no more than X lines changed per file
+    - no more than X files
+    - warn on uncommitted files when committing
+- [ ] atom package test files with `.spec` conventions? or should I follow typical atom package `-spec` conventions
+
+## Notes
+
+### Installing Atom for Package development
+Atom Development and set up for more configuration
+ - Install newest version
+ - Get [atom](https://github.com/atom/atom) repo from Github
+ - install with `./script/bootstrap` (maybe `./script/build`)
+ - Ensure package tests can run by cloning this package and attempting to run tests with `ctrl + alt(opt) + cmd + P` (dialog should appear and test should fail)
 
 
+### Useful Commands
 
-## `keymaps` Directory
-contains a json file that defines the key-mappings to the atom commands that we have defined in the entry file.
+List of [keyboard shortcuts](/commands.md?id=useful-atom-commands) that I thought would be useful
 
+examples:  
+`cmd + P` - find file  
+`cmd + shift + P` - toggle command pallete  
+`ctrl + F/B` - forward/back character   
+`ctrl + Y/N` - up down line  (`ctrl + Y` is a custom keybinding set in keymap.cson file)  
+`ctrl + A/E` - jump to front/end of line  
 
-## `menus` Directory
-Contains a json file named after the package that describes the menu items that should appear for the package. The `context-menu` config will define menu available in the context menu, and the `menu` config will define the options available when you right click in the editor.
+### Packages
 
-## `styles` directory
-Defines the CSS styles for the elements created by the package.  
+List of [packages I have installed](/packages.md?id=packages) and played around with
 
-## `spec` directory
-Contains the unit tests for this package
+### Hacking/Customization
+
+[Notes](/hacking.md?id=hacking-atom) from learning how to hack atom and atom package development

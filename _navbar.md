@@ -1,3 +1,4 @@
 * [Home](/)
-* [Packages](packages.md)
 * [Commands](commands.md)
+* [Packages](packages.md)
+* [Hacking](hacking.md)
