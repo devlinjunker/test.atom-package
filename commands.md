@@ -29,11 +29,9 @@
 
 **From Packages**
 
-`Alt + O` - Toggle outline panel  (Atom-IDE-UI)
-
 `Command + Shift + T` - Toggle Todo List  (TODO)
 
-`Ctrl + Shift + T` - New Terminal Pane (Atom-IDE-UI)
+`Cmd + Option + T` - New Terminal Pane (Platformio-IDE-Terminal)
 
 `cmd + click` - hyperclick on urls or javascript or flow methods/types to jump to definition
 

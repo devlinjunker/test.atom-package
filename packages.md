@@ -129,6 +129,10 @@ Helper package for writing documentation...
  - Auto create comment documentation blocks
  - [x] Enable DocBlockr
 
+### Flow-IDE
+Standalone package for flow integrations in atom
+ - [ ] review this more
+
 ### Hyperclick *
  Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
   - triggered by two events:
@@ -140,59 +144,16 @@ Helper package for writing documentation...
   - [..] CSS Hyperclick
    - Doesn't seem like this works with `.less` files in these packages...
 
-### Atom IDE UI *
-UIs to support language services and debuggers
- - IDEA: Markdown outline?
- - [..] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
-  - Not sure if a separate package is needed or if it just comes with IDE-UI
-  - Toggle Debugger panel with pallete command `dbugsh`
-  - Launch or attach to node process?
-  - TODO: Test debugger with node project
-
-#### IDE-CSS *
-Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
- - Rules outline in Outline Panel
- - Tooltips for css selector/property and linters
-
-#### IDE-HTML *
-Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
- - HTML DOM Outline in Outline Panel
-
-#### IDE-Flowtype *
-Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
- - Flow Autocomplete is bumped to top of autocomplete list
-  - IDEA: Show which class (parent class) a property/method is from
- - UI indications of bad flow code
- - go to definition (hover over symbol and click while holding `cmd`)
- - type hints when hovering over symbols
- - Outline of flow files
-  - make sure flow server is running for project:
-   - new terminal, `./node_modules/.bin/flow start`
- - [..] Look into "find references" flow package
-  - Attempting to google around for this seems like it isn't that supported by flow
-  - May want to move to typescript for this
-
-#### IDE-Typescript --
-Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
- - Auto completion
- - Diagnostics (errors & warnings, with autofixes)
- - Document outline
- - Find references
- - Go to definition
- - Hover
- - Signature help
- - TODO: Explore IDE-Typescript Later
-
 ### Language Babel *
  Language Grammar for ES2016 and ESnext, including JSX syntax
 
-### ~~Linter + Linter UI Default +~~  Linter ESLint *
+### Linter + Linter UI Default +  Linter ESLint *
 Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint that is run on javascript files.
   - Uses the project version of eslint
   - Linter-tslint too
   - atom-ide-diagnostics also displays linter messages (conflicts with linter?)
   [x] Install linter-eslint
-   - Seems to work with Atom-IDE-UI diagnostics
+   - ~~Seems to work with Atom-IDE-UI diagnostics~~
    - Enable autosave to get rules fixed on save (whenever possible)
    - [x] Format this project according to my `eslint.yaml`
    - [ ] Enable HTML Linting?
@@ -200,6 +161,10 @@ Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint 
 ### Pigments *
 display colors in the text editor via highlights over the color code
  - [x] Enable Pigments?
+
+### Platformio IDE Terminal
+Standalone package for adding a terminal to atom
+ - `cmd + option + T` to open terminal
 
 ### javascript-refactor *
 Stand-alone package for refactoring imported javascript file locations on rename
@@ -287,6 +252,7 @@ Use TernJS to follow JavaScript References/Definitions for functions
 
 
 ### Nuclide --
+NOTE: No longer supported
 Collection of features for Atom to provide IDE like functionality. From Facebook.
   - [x] Look into full Nuclide feature list: https://nuclide.io/docs/
    - Quick Open (Proprietary Search Feature) "OmniSearch", file names, open files, recent files
@@ -309,6 +275,51 @@ Collection of features for Atom to provide IDE like functionality. From Facebook
   - Terminal (like atom-ide-ui)
   - Optional: Nuclide Toolbar
   - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
+
+
+### Atom IDE UI --
+NOTE: As of 2018 this package and other IDE packages depending on it now longer will work!!!
+UIs to support language services and debuggers
+ - IDEA: Markdown outline?
+ - [x] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
+  - Not sure if a separate package is needed or if it just comes with IDE-UI
+  - Toggle Debugger panel with pallete command `dbugsh`
+  - Launch or attach to node process?
+  - TODO: Test debugger with node project
+
+#### IDE-CSS --
+Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
+ - Rules outline in Outline Panel
+ - Tooltips for css selector/property and linters
+
+#### IDE-HTML --
+Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
+ - HTML DOM Outline in Outline Panel
+
+#### IDE-Flowtype --
+Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
+ - Flow Autocomplete is bumped to top of autocomplete list
+  - IDEA: Show which class (parent class) a property/method is from
+ - UI indications of bad flow code
+ - go to definition (hover over symbol and click while holding `cmd`)
+ - type hints when hovering over symbols
+ - Outline of flow files
+  - make sure flow server is running for project:
+   - new terminal, `./node_modules/.bin/flow start`
+ - [..] Look into "find references" flow package
+  - Attempting to google around for this seems like it isn't that supported by flow
+  - May want to move to typescript for this
+
+#### IDE-Typescript --
+Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
+ - Auto completion
+ - Diagnostics (errors & warnings, with autofixes)
+ - Document outline
+ - Find references
+ - Go to definition
+ - Hover
+ - Signature help
+
 
 
 ### Atom-Typescript --

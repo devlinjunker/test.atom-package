@@ -1,5 +1,5 @@
 "atom-workspace":
-  "shift-cmd-T": "todo:toggle"
+  "shift-ctrl-T": "todo:toggle"
 
 ".editor":
   "ctrl-y": "core:move-up"

@@ -3,13 +3,7 @@
 #  "findUsingRegex": "/(${TODOS}|- \\[(?:(?:\\.\\.)| )\\])[:;.]+\d*($|\\s?.*$|[\\{\\[\\(].+$)/g"
 #  "showInTable": ["Text", "Type", "Path", "Line"]
 
-"atom-ide-ui": ""
-
-"ide-css": ""
-
-"ide-html": ""
-
-"ide-flowtype": ""
+"flow-ide": ""
 
 "linter-eslint":
   "autofix":
@@ -33,3 +27,5 @@
   "a_pattern":"(?:(TODO|IDEA|Q):.+|- \\[(\\.\\.| |\\?)\\] .+)"
 
 "pigments": ""
+
+"platformio-ide-terminal": ""
