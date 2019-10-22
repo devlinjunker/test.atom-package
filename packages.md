@@ -129,9 +129,14 @@ Helper package for writing documentation...
  - Auto create comment documentation blocks
  - [x] Enable DocBlockr
 
-### Flow-IDE
+### Flow-IDE *
 Standalone package for flow integrations in atom
- - [ ] review this more
+ - Linting
+ - Autocomplete
+ - Jump to declaration (using facebook-atom/hyperclick or facebook-atom/atom-ide-ui)
+ - Datatip on hover (using facebook-atom/atom-ide-ui)
+ - Outline of classes, functions, types and variables (using facebook-atom/atom-ide-ui)
+ - TODO: Look into more
 
 ### Hyperclick *
  Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
@@ -162,7 +167,7 @@ Base linter for visualizing linting errors. Plugin for UI and Plugin for eslint 
 display colors in the text editor via highlights over the color code
  - [x] Enable Pigments?
 
-### Platformio IDE Terminal
+### Platformio IDE Terminal *
 Standalone package for adding a terminal to atom
  - `cmd + option + T` to open terminal
 
@@ -203,6 +208,33 @@ Autocomplete for require/import statements of packages
   - [..] AutoComplete Babel Plugin Module Resolver?
 
 
+### Atom IDE UI (Installed for hyperclick)
+NOTE: As of 2018 this package and other IDE packages depending on it now longer will work!!!
+UIs to support language services and debuggers
+- IDEA: Markdown outline?
+- [x] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
+ - Not sure if a separate package is needed or if it just comes with IDE-UI
+ - Toggle Debugger panel with pallete command `dbugsh`
+ - Launch or attach to node process?
+ - TODO: Test debugger with node project
+
+#### IDE-Flowtype
+Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
+- Flow Autocomplete is bumped to top of autocomplete list
+ - IDEA: Show which class (parent class) a property/method is from
+- UI indications of bad flow code
+- go to definition (hover over symbol and click while holding `cmd`)
+- type hints when hovering over symbols
+- Outline of flow files
+ - make sure flow server is running for project:
+  - new terminal, `./node_modules/.bin/flow start`
+- [..] Look into "find references" flow package
+ - Attempting to google around for this seems like it isn't that supported by flow
+ - May want to move to typescript for this
+
+### Atom IDE Community ?
+ - look into more: https://atom-ide-community.github.io/
+
 ### Mocha Test Runner ?
 Run Mocha Test Files or Specific specs using the project mocha installation.
   - `ctrl + alt + m` run current file (or single mocha block if cursor on that line)
@@ -229,7 +261,6 @@ Basic debugger for node projects. When in js files, begin debugger and open pane
 
  Or can attach to external process if you pass `--debug=<port>` to node process to debug.
 
-
 ### xatom-debug ?
 Debugger for Atom. Basic UI For Debugger.
   - Debuggers for Node 6.3 and Chrome??
@@ -238,6 +269,9 @@ Debugger for Atom. Basic UI For Debugger.
 ### xatom-debug-nodejs ?
 NodeJS Debugger Plugin for xatom-debug
 
+### Atom-Typescript ?
+Typescript plugin for Atom. Lots of settings
+ - TODO: read up on https://atom.io/packages/atom-typescript
 
 ### Atom-TernJS --
 Use TernJS to follow JavaScript References/Definitions for functions  
@@ -250,81 +284,6 @@ Use TernJS to follow JavaScript References/Definitions for functions
  - [x] Explore ternjs/atom-ternjs with javascript
   - tried this, but couldn't see any improvement over the standard autocomplete with javascript
 
-
-### Nuclide --
-NOTE: No longer supported
-Collection of features for Atom to provide IDE like functionality. From Facebook.
-  - [x] Look into full Nuclide feature list: https://nuclide.io/docs/
-   - Quick Open (Proprietary Search Feature) "OmniSearch", file names, open files, recent files
-   - Remote Development with project on server
-   - Nuclide Diagnostics (Similar to atom-ide-ui)
-   - Distraction Free Mode (Quickly Toggle Side panels?)
-   - Format JS (For even more javascript ide tools)
-    - Auto Add/Remove? Require statements/Types
-    - [x] Look into FormatJS Package https://atom.io/packages/nuclide-format-js
-     - Q: enabled, unsure if useful though. I'll have to try to remember to think about it
-  - Debugger inspired by chrome tools
-  - Task Runner toolbar (Build, test, run, debug)
-  - Working Sets
-  - Outline panel
-  - Context View - most interesting
-   - Display definition and information about symbol clicking on
-   - [x] Look into Context View Package
-    - only exists for Nuclide it looks like (or VS Code with Typescript)
-  - Health Stats for Nuclide (Atom)
-  - Terminal (like atom-ide-ui)
-  - Optional: Nuclide Toolbar
-  - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
-
-
-### Atom IDE UI --
-NOTE: As of 2018 this package and other IDE packages depending on it now longer will work!!!
-UIs to support language services and debuggers
- - IDEA: Markdown outline?
- - [x] Look into Atom IDE Debugger Node https://atom.io/packages/atom-ide-debugger-node
-  - Not sure if a separate package is needed or if it just comes with IDE-UI
-  - Toggle Debugger panel with pallete command `dbugsh`
-  - Launch or attach to node process?
-  - TODO: Test debugger with node project
-
-#### IDE-CSS --
-Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
- - Rules outline in Outline Panel
- - Tooltips for css selector/property and linters
-
-#### IDE-HTML --
-Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
- - HTML DOM Outline in Outline Panel
-
-#### IDE-Flowtype --
-Enhancements for UI to Improve Flow Development **Requires atom-ide-ui package**
- - Flow Autocomplete is bumped to top of autocomplete list
-  - IDEA: Show which class (parent class) a property/method is from
- - UI indications of bad flow code
- - go to definition (hover over symbol and click while holding `cmd`)
- - type hints when hovering over symbols
- - Outline of flow files
-  - make sure flow server is running for project:
-   - new terminal, `./node_modules/.bin/flow start`
- - [..] Look into "find references" flow package
-  - Attempting to google around for this seems like it isn't that supported by flow
-  - May want to move to typescript for this
-
-#### IDE-Typescript --
-Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
- - Auto completion
- - Diagnostics (errors & warnings, with autofixes)
- - Document outline
- - Find references
- - Go to definition
- - Hover
- - Signature help
-
-
-
-### Atom-Typescript --
-Typescript plugin for Atom. Lots of settings
- - TODO: read up on https://atom.io/packages/atom-typescript
 
 ### Busy Signal --
 Package API for displaying in progress tasks
@@ -339,6 +298,53 @@ Right click or press `Command + Shift + C` or `Ctrl + Alt + C`
 React Support (JSX, Indentation, Snippets, Autocomplete and reformatting?)
  - https://orktes.github.io/atom-react/
  - TODO: Look into React Support Later?
+
+### ~~Nuclide~~
+NOTE: No longer supported
+Collection of features for Atom to provide IDE like functionality. From Facebook.
+ - [x] Look into full Nuclide feature list: https://nuclide.io/docs/
+  - Quick Open (Proprietary Search Feature) "OmniSearch", file names, open files, recent files
+  - Remote Development with project on server
+  - Nuclide Diagnostics (Similar to atom-ide-ui)
+  - Distraction Free Mode (Quickly Toggle Side panels?)
+  - Format JS (For even more javascript ide tools)
+   - Auto Add/Remove? Require statements/Types
+   - [x] Look into FormatJS Package https://atom.io/packages/nuclide-format-js
+    - Q: enabled, unsure if useful though. I'll have to try to remember to think about it
+ - Debugger inspired by chrome tools
+ - Task Runner toolbar (Build, test, run, debug)
+ - Working Sets
+ - Outline panel
+ - Context View - most interesting
+  - Display definition and information about symbol clicking on
+  - [x] Look into Context View Package
+   - only exists for Nuclide it looks like (or VS Code with Typescript)
+ - Health Stats for Nuclide (Atom)
+ - Terminal (like atom-ide-ui)
+ - Optional: Nuclide Toolbar
+ - Optional: Buck Build Integration (Build System by atom) https://buckbuild.com/
+
+
+
+
+#### ~~IDE-CSS~~
+Enhancements for UI to improve CSS Development **Requires atom-ide-ui package**
+- Rules outline in Outline Panel
+- Tooltips for css selector/property and linters
+
+#### ~~IDE-HTML~~
+Enhancements for UI to improve HTML Development **Requires atom-ide-ui package**
+- HTML DOM Outline in Outline Panel
+
+#### ~~IDE-Typescript~~
+Enhancements for UI to improve Typescript Development **Requires atom-ide-ui package**
+- Auto completion
+- Diagnostics (errors & warnings, with autofixes)
+- Document outline
+- Find references
+- Go to definition
+- Hover
+- Signature help
 
 
 ### ~~Git Log~~

@@ -3,6 +3,10 @@
 #  "findUsingRegex": "/(${TODOS}|- \\[(?:(?:\\.\\.)| )\\])[:;.]+\d*($|\\s?.*$|[\\{\\[\\(].+$)/g"
 #  "showInTable": ["Text", "Type", "Path", "Line"]
 
+"atom-ide-ui": ""
+
+"ide-flowtype": ""
+
 "flow-ide": ""
 
 "linter-eslint":
