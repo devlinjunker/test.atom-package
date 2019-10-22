@@ -2,6 +2,14 @@
 #  "ignoreThesePaths": ['node_modules', '*/config.cson']
 #  "findUsingRegex": "/(${TODOS}|- \\[(?:(?:\\.\\.)| )\\])[:;.]+\d*($|\\s?.*$|[\\{\\[\\(].+$)/g"
 #  "showInTable": ["Text", "Type", "Path", "Line"]
+"core":
+  "themes": [
+    "atom-dark-ui"
+    "atom-dark-syntax"
+  ]
+
+"editor":
+  "preferredLineLength": 110
 
 "atom-ide-ui": ""
 
@@ -12,6 +20,10 @@
 "linter-eslint":
   "autofix":
     "fixOnSave": true
+
+"linter-ui-default":
+  "panelRepresents": "Current File"
+  "statusBarRepresents": "Current File"
 
 "language-babel": ""
 
