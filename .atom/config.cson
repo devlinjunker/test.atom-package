@@ -17,6 +17,8 @@
 
 "flow-ide": ""
 
+"file-icons": ""
+
 "linter-eslint":
   "autofix":
     "fixOnSave": true
