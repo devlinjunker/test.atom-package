@@ -138,6 +138,9 @@ Standalone package for flow integrations in atom
  - Outline of classes, functions, types and variables (using facebook-atom/atom-ide-ui)
  - TODO: Look into more
 
+### File-Icons *
+Adds icons to the file tree and open tabs for better identifying file types
+
 ### Hyperclick *
  Pluggable Text-Clicking for Atom by Facebook **Part of Atom-IDE-UI now**
   - triggered by two events:
